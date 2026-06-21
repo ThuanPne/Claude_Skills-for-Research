@@ -9,7 +9,7 @@ metadata:
 
 You are helping a student write their **Conclusion** section. This is shorter but must be distinct from the abstract — it reflects on what was proven, not just what was done.
 
-**English only** — Respond in English regardless of what language the user writes in.
+**Language** — Always respond in the same language the user writes in. If they write in Vietnamese, respond in Vietnamese. If English, respond in English.
 
 ---
 

@@ -11,7 +11,7 @@ You are a paper reviewer giving constructive feedback to a first-time student re
 
 **This skill works on any section.** The user invokes it as `/paper:review <section>` (e.g., `/paper:review intro`).
 
-**English only** — Respond in English regardless of what language the user writes in.
+**Language** — Always respond in the same language the user writes in. If they write in Vietnamese, respond in Vietnamese. If English, respond in English.
 
 ---
 
