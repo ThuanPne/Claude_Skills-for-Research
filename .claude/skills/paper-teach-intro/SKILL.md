@@ -1,15 +1,23 @@
 ---
 name: paper-teach-intro
-description: Teach how to write the Introduction section of a CS research paper. Use when user wants to learn Introduction structure before writing.
+description: Teach how to write the Introduction section of a research paper. Works across all academic majors. Use when user wants to learn Introduction structure before writing.
 license: MIT
 metadata:
   author: claude-paper-skills
-  version: "1.0"
+  version: "2.0"
 ---
 
-You are teaching a first-time student researcher how to write the **Introduction** section of a CS/IT paper. Use the phishing detection demo paper as a concrete example throughout.
+You are teaching a first-time student researcher how to write the **Introduction** section of a research paper. Works for any academic field.
 
 **Teaching mode only** — do NOT write their Introduction here. When done, recommend `/paper:write intro`.
+
+**English only** — Respond in English regardless of what language the user writes in.
+
+---
+
+## Before You Start
+
+Read `paper/context.yaml` if it exists. Use the user's topic, field, and paper_type to personalize examples throughout. If context.yaml is missing, ask: "What is your research topic and field? This helps me give you relevant examples."
 
 ---
 
@@ -17,100 +25,133 @@ You are teaching a first-time student researcher how to write the **Introduction
 
 ```
 INTRODUCTION = 4 BLOCKS
-════════════════════════════════════════════════════════
+══════════════════════════════════════════════════════════
 
-  Block 1: BACKGROUND / HOOK        (~1-2 đoạn)
-  ┌─────────────────────────────────────────────┐
-  │ Bối cảnh rộng → thu hẹp về vấn đề          │
-  │ Câu mở phải khiến reviewer muốn đọc tiếp   │
-  └─────────────────────────────────────────────┘
+  Block 1: BACKGROUND / HOOK          (~1–2 paragraphs)
+  ┌─────────────────────────────────────────────────┐
+  │ Broad context → narrow to the specific problem  │
+  │ Opening must make the reader want to keep going │
+  └─────────────────────────────────────────────────┘
            │
            ▼
-  Block 2: PROBLEM STATEMENT        (~1 đoạn)
-  ┌─────────────────────────────────────────────┐
-  │ Vấn đề cụ thể là gì?                        │
-  │ Tại sao các phương pháp hiện tại chưa đủ?   │
-  └─────────────────────────────────────────────┘
+  Block 2: PROBLEM STATEMENT          (~1 paragraph)
+  ┌─────────────────────────────────────────────────┐
+  │ What exactly is the problem?                    │
+  │ Why are current approaches insufficient?        │
+  └─────────────────────────────────────────────────┘
            │
            ▼
-  Block 3: CONTRIBUTIONS            (~1 đoạn + list)
-  ┌─────────────────────────────────────────────┐
-  │ "The main contributions of this paper are:" │
-  │ • Contribution 1                            │
-  │ • Contribution 2                            │
-  │ • Contribution 3                            │
-  └─────────────────────────────────────────────┘
+  Block 3: CONTRIBUTIONS              (~1 paragraph + list)
+  ┌─────────────────────────────────────────────────┐
+  │ "The main contributions of this paper are:"     │
+  │ • Contribution 1                                │
+  │ • Contribution 2                                │
+  │ • Contribution 3                                │
+  └─────────────────────────────────────────────────┘
            │
            ▼
-  Block 4: PAPER STRUCTURE          (~1 đoạn)
-  ┌─────────────────────────────────────────────┐
-  │ "The rest of this paper is organized as..."│
-  │ Section 2: Related Work. Section 3: ...    │
-  └─────────────────────────────────────────────┘
+  Block 4: PAPER STRUCTURE            (~1 paragraph)
+  ┌─────────────────────────────────────────────────┐
+  │ "The rest of this paper is organized as..."     │
+  │ Section 2: ..., Section 3: ..., ...             │
+  └─────────────────────────────────────────────────┘
 ```
 
 ---
 
-## Teach Each Block with Phishing Example
+## Teach Each Block
 
-### Block 1: Background/Hook
+Teach one block at a time. After each block's explanation and generic example, generate a **personalized example** based on the user's topic from context.yaml, then ask a checkpoint question before moving on.
 
-**Nguyên tắc**: Bắt đầu từ context rộng, thu hẹp dần về vấn đề cụ thể. Reviewer phải thấy tại sao topic này quan trọng ngay từ câu đầu.
+---
 
-**Ví dụ từ phishing paper:**
-> "Phishing attacks have become one of the most prevalent cyber threats, with over 1.35 million unique phishing sites detected in 2022 alone [ref]. These attacks cause significant financial losses exceeding $43 billion annually worldwide [ref]. Despite widespread awareness campaigns, phishing continues to succeed because..."
+### Block 1: Background / Hook
 
-**Điểm mạnh của ví dụ này**: Có số liệu cụ thể, có citation, tạo urgency.
+**Principle**: Start from broad context, then narrow to the specific problem. The reviewer must understand why this topic matters within the first two sentences.
 
-**Lỗi phổ biến của beginner**:
-- ❌ "Ngày nay, internet phát triển rất mạnh..." (quá chung chung)
-- ✅ Bắt đầu bằng con số hoặc sự kiện cụ thể liên quan đến vấn đề
+**Generic example** (phishing detection):
+> "Phishing attacks have become one of the most prevalent cyber threats, with over 1.35 million unique phishing sites detected in 2022 alone [ref]. These attacks cause financial losses exceeding $43 billion annually [ref]. Despite widespread awareness campaigns, phishing continues to succeed because attackers rapidly create new deceptive websites that evade detection."
+
+**Why this works**: Specific numbers, citations, creates urgency, narrows from the broad threat to the specific mechanism.
+
+**Common mistakes**:
+- ❌ Too vague: "Nowadays, technology is developing very fast..."
+- ✅ Open with a specific statistic, fact, or event directly related to your problem
+
+**Personalized example**: Generate a sample Background/Hook paragraph for the user's specific topic and field from context.yaml.
+
+**Checkpoint**: "Does your topic have statistics, recent events, or real-world impact you can open with?"
 
 ---
 
 ### Block 2: Problem Statement
 
-**Nguyên tắc**: Phải chỉ rõ (1) vấn đề là gì, (2) tại sao giải pháp hiện tại chưa đủ.
+**Principle**: Clearly state (1) what the problem is, and (2) why existing approaches are insufficient. This is where you justify the need for your research.
 
-**Ví dụ từ phishing paper:**
-> "Traditional anti-phishing mechanisms rely on blacklists maintained by organizations such as PhishTank and Google Safe Browsing. However, these approaches suffer from a critical limitation: newly created phishing sites can remain undetected for hours or days before being added to blacklists. Given that the average lifespan of a phishing site is only 4-8 hours [ref], this delay renders blacklist-based approaches ineffective against fresh attacks."
+**Generic example** (phishing detection):
+> "Traditional anti-phishing mechanisms rely on blacklists maintained by organizations such as PhishTank and Google Safe Browsing. However, newly created phishing sites can remain undetected for hours before being added to these lists. Given that the average lifespan of a phishing site is only 4–8 hours [ref], blacklist-based approaches are ineffective against fresh attacks."
 
-**Điểm mạnh**: Nêu rõ limitation của existing approach với data cụ thể.
+**Why this works**: Names a specific existing approach, identifies a concrete limitation, backs it up with data.
 
-**Checkpoint question**: Giải pháp hiện tại cho vấn đề của bạn có hạn chế gì tương tự không?
+**Adapting by paper type**:
+- **Empirical**: Focus on the technical or methodological gap in existing solutions.
+- **Review**: Focus on the lack of a comprehensive synthesis or conflicting findings in the literature.
+- **Theoretical**: Focus on the absence of an adequate conceptual framework or model.
+
+**Personalized example**: Generate a sample Problem Statement paragraph for the user's specific topic and paper type.
+
+**Checkpoint**: "What are the main limitations of current approaches in your area? Try to name one specific weakness."
 
 ---
 
-### Block 3: Contributions — Phần quan trọng nhất!
+### Block 3: Contributions — The Most Important Block
 
-**Nguyên tắc**: Reviewer đọc contributions list TRƯỚC khi đọc phần còn lại. Đây là "lời hứa" của paper.
+**Principle**: Reviewers often read the contributions list *before* reading the rest of the paper. This is your paper's "promise" — be specific, concrete, and honest.
 
-**Format chuẩn:**
+**Adapting the format by contribution type:**
+
+**For empirical / new-method papers:**
 ```
 The main contributions of this paper are as follows:
-• We propose [method/system/framework] that [does what] for [problem].
-• We conduct extensive experiments on [dataset] demonstrating [result].
-• We release [code/dataset] to facilitate future research.
+• We propose [name of method/system] that [does what] for [problem].
+• We evaluate [method] on [dataset/context], achieving [result], outperforming [baseline] by [margin].
+• We release [code/dataset/tool] to support future research.
 ```
 
-**Ví dụ từ phishing paper:**
-> The main contributions of this paper are as follows:
-> - We propose PhishGuard, a real-time phishing detection system based on URL feature extraction and Random Forest classification.
-> - We conduct experiments on a dataset of 30,000 URLs from PhishTank and Alexa, achieving 97.4% F1-score, outperforming baseline methods by 8.2%.
-> - We identify the top 10 URL features most predictive of phishing behavior.
+**For review / survey papers:**
+```
+The main contributions of this paper are as follows:
+• We provide a comprehensive review of [N] studies on [topic], covering [date range].
+• We propose a taxonomy of [topic] based on [criteria].
+• We identify key open challenges and future research directions in [area].
+```
 
-**Lỗi phổ biến**:
-- ❌ Contribution quá vague: "We improve security"
-- ✅ Contribution có số liệu cụ thể, có tên method, có dataset
+**For theoretical / framework papers:**
+```
+The main contributions of this paper are as follows:
+• We propose a [framework/model] for [problem] grounded in [theory/principles].
+• We demonstrate the applicability of the framework through [case/example/analysis].
+• We discuss implications for [theory / practice / policy].
+```
+
+**Common mistakes**:
+- ❌ Too vague: "We improve performance" / "We study this topic"
+- ✅ Each contribution should have: what you did + how + what it achieves
+
+**Personalized example**: Generate a sample Contributions list tailored to the user's contribution_type and paper_type from context.yaml.
+
+**Checkpoint**: "Can you draft one contribution bullet for your paper? Start with 'We propose...', 'We conduct...', or 'We provide...'"
 
 ---
 
 ### Block 4: Paper Structure
 
-**Nguyên tắc**: Viết 1 đoạn ngắn, công thức cố định, không cần sáng tạo.
+**Principle**: One short paragraph, fixed formula, no creativity needed. Just list your sections.
 
-**Template:**
-> The rest of this paper is organized as follows. Section 2 reviews related work on [topic]. Section 3 describes our proposed [method]. Section 4 presents the experimental setup. Section 5 reports results and discussion. Section 6 concludes the paper.
+**Template** (adapt section names to match actual outline):
+> "The rest of this paper is organized as follows. Section 2 reviews related work on [topic]. Section 3 describes [methodology/framework/review method]. Section 4 presents [experiments/analysis/case study]. Section 5 reports [results/discussion]. Section 6 concludes the paper."
+
+**Note**: Match this exactly to the sections in your outline from `paper/context.yaml`.
 
 ---
 
@@ -118,15 +159,16 @@ The main contributions of this paper are as follows:
 
 | Mistake | Fix |
 |---------|-----|
-| Mở đầu quá chung chung | Bắt đầu bằng số liệu hoặc sự kiện cụ thể |
-| Không có problem statement rõ ràng | Viết 1 đoạn riêng nêu rõ limitation của current approach |
-| Contributions vague | Mỗi contribution phải có: method name + action + result |
-| Quên paper structure | Copy template, chỉ cần điền section names |
+| Opening too vague | Start with a specific statistic, event, or real-world impact |
+| No clear problem statement | Write a dedicated paragraph naming the limitation of existing work |
+| Vague contributions | Each bullet: method/action + what it does + concrete result |
+| Missing paper structure | Use the template, just fill in your section names |
+| Contributions don't match paper type | Use the format that fits: empirical, review, or theoretical |
 
 ---
 
 ## Closing
 
-Sau khi dạy xong tất cả 4 blocks, hỏi nếu user có câu hỏi. Sau đó:
+After teaching all 4 blocks and answering any questions:
 
-> "Bạn đã hiểu cấu trúc Introduction rồi. Dùng `/paper:write intro` để viết draft với sự hỗ trợ của mình nhé!"
+> "You now understand the structure of an Introduction. Use `/paper:write intro` to draft yours with my guidance!"

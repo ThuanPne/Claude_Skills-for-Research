@@ -17,6 +17,6 @@ Dispatch to the correct write skill based on the section argument:
 
 If no argument provided, check `paper/context.yaml` for `sections_status` and suggest the first `not-started` section.
 
-If user hasn't used the corresponding teach skill yet, gently remind: "Tip: Dùng `/paper:teach <section>` trước để hiểu cấu trúc section này sẽ giúp bạn trả lời câu hỏi dễ hơn."
+If user hasn't used the corresponding teach skill yet, gently remind: "Tip: Use `/paper:teach <section>` first to learn the structure — it will make the Q&A much easier."
 
 ARGUMENTS: {{args}}

@@ -1,122 +1,260 @@
 ---
 name: paper-teach-results
-description: Teach how to write the Results section of a CS research paper. Use when user wants to learn Results structure before writing.
+description: Teach how to write the Results section of a research paper. Works across all academic majors and paper types. Use when user wants to learn Results structure before writing.
 license: MIT
 metadata:
   author: claude-paper-skills
-  version: "1.0"
+  version: "2.0"
 ---
 
-You are teaching how to write the **Results** section. Most beginners just paste numbers — teach them to tell a story with data.
+You are teaching a first-time student researcher how to write the **Results** section. Most beginners just paste numbers — teach them to tell a story with data.
 
 **Teaching mode only** — recommend `/paper:write results` at the end.
 
+**English only** — Respond in English regardless of what language the user writes in.
+
 ---
 
-## Structure to Teach
+## Before You Start
+
+Read `paper/context.yaml` if it exists. Use `paper_type` to determine the right structure:
+
+- **empirical / new-method** → Main results table + analysis + ablation study
+- **review** → Synthesis of findings + taxonomy + open challenges
+- **theoretical** → Framework validation or illustrative application
+
+If context.yaml is missing, ask: "Is your paper empirical (runs experiments with numbers), a review, or a theoretical work?"
+
+---
+
+## For Empirical / New-Method Papers
+
+### Structure
 
 ```
 RESULTS = 3 PARTS
-════════════════════════════════════════════════════════
+══════════════════════════════════════════════════════════
 
-  Part 1: MAIN RESULTS TABLE        (comparison với baselines)
-  ┌─────────────────────────────────────────────┐
-  │ Bảng so sánh tất cả methods                │
-  │ Bold số tốt nhất                            │
-  │ 1-2 đoạn phân tích                         │
-  └─────────────────────────────────────────────┘
+  Part 1: MAIN RESULTS TABLE        (comparison with baselines)
+  ┌─────────────────────────────────────────────────┐
+  │ Table comparing all methods across metrics      │
+  │ Bold the best result in each column             │
+  │ 1–2 paragraphs of analysis                      │
+  └─────────────────────────────────────────────────┘
            │
            ▼
-  Part 2: ANALYSIS & DISCUSSION     (tại sao kết quả như vậy?)
-  ┌─────────────────────────────────────────────┐
-  │ Không chỉ đọc lại số                        │
-  │ Phải giải thích: tại sao method mình tốt?   │
-  │ Kết quả nào bất ngờ? Tại sao?              │
-  └─────────────────────────────────────────────┘
+  Part 2: ANALYSIS & DISCUSSION     (why do results look this way?)
+  ┌─────────────────────────────────────────────────┐
+  │ Don't just restate numbers                      │
+  │ Explain: why is your method better?             │
+  │ Any surprising findings? Why?                   │
+  └─────────────────────────────────────────────────┘
            │
            ▼
-  Part 3: ABLATION STUDY            (từng component đóng góp gì?)
-  ┌─────────────────────────────────────────────┐
-  │ Remove/disable từng component               │
-  │ Đo xem performance drop bao nhiêu?          │
-  │ Chứng minh mỗi phần đều cần thiết           │
-  └─────────────────────────────────────────────┘
+  Part 3: ABLATION STUDY            (what does each component add?)
+  ┌─────────────────────────────────────────────────┐
+  │ Remove/disable one component at a time          │
+  │ Measure how much performance drops              │
+  │ Proves each part is necessary                   │
+  └─────────────────────────────────────────────────┘
 ```
 
----
+### Teach Each Part
 
-## Teach Each Part with Phishing Example
-
-### Part 1: Main Results Table
-
-**Nguyên tắc**: Table phải có: method names, metrics, highlight best result.
-
-**Ví dụ từ phishing paper:**
+**Part 1 — Main Results Table** (generic example, phishing detection):
 
 ```
 Table 1: Comparison of phishing detection methods
 
-Method              Accuracy   Precision  Recall   F1-score
+Method               Accuracy  Precision  Recall   F1-score
 ─────────────────────────────────────────────────────────────
-PhishTank Blacklist  78.3%      91.2%     65.4%    76.2%
-SVM-URL [ref]        92.1%      91.8%     92.4%    92.1%
-PhishGuard-NoWeight  94.3%      93.7%     94.9%    94.3%
-PhishGuard (ours)  **97.4%**  **97.1%** **97.7%** **97.4%**
+PhishTank Blacklist   78.3%     91.2%     65.4%    76.2%
+SVM-URL [ref]         92.1%     91.8%     92.4%    92.1%
+PhishGuard-NoWeight   94.3%     93.7%     94.9%    94.3%
+PhishGuard (ours)   **97.4%** **97.1%** **97.7%** **97.4%**
 ─────────────────────────────────────────────────────────────
 Bold = best result
 ```
 
-**Cách viết text cho table:**
-> "Table 1 presents the performance comparison of all methods. PhishGuard achieves the highest F1-score of 97.4%, outperforming the best baseline SVM-URL by 5.3 percentage points. The blacklist-based method shows the lowest recall (65.4%), confirming its inability to detect novel phishing sites."
+Analysis paragraph:
+> "Table 1 presents the performance comparison. PhishGuard achieves the highest F1-score of 97.4%, outperforming the best baseline SVM-URL by 5.3 percentage points. The blacklist-based method shows the lowest recall (65.4%), confirming its inability to detect novel phishing sites."
 
-**Lỗi phổ biến**: 
-- ❌ Chỉ nói "method của chúng tôi tốt nhất" mà không nêu cụ thể bao nhiêu %
-- ✅ So sánh tường minh với số liệu: "outperforming X by Y%"
+**Common mistakes:**
+- ❌ "Our method is the best" — no margin, no comparison
+- ✅ "Outperforming [baseline] by [X] percentage points / units"
 
----
+**Part 2 — Analysis & Discussion** (3 things to write about):
 
-### Part 2: Analysis & Discussion
+1. Why your method is better:
+> "The superiority of PhishGuard can be attributed to its feature weighting mechanism, which assigns higher importance to features with strong discriminative power."
 
-**Nguyên tắc**: "Why" quan trọng hơn "what". Đừng chỉ đọc lại số.
+2. Why baselines fall short:
+> "The blacklist approach's low recall (65.4%) confirms that static lists cannot detect newly created phishing sites."
 
-**3 loại analysis cần viết:**
+3. Surprising findings (if any):
+> "Interestingly, PhishGuard-NoWeight outperforms SVM-URL despite using identical features, suggesting Random Forest's ensemble nature provides robustness even without explicit weighting."
 
-**1. Tại sao method của mình tốt hơn:**
-> "The superiority of PhishGuard over SVM-URL can be attributed to its feature weighting mechanism, which assigns higher importance to features that show strong discriminative power (e.g., URL length, presence of '@' symbol) and downweights noisy features."
-
-**2. Tại sao baseline yếu:**
-> "The blacklist approach's low recall (65.4%) confirms our hypothesis: phishing sites created within 24 hours of data collection are systematically missed by static blacklists."
-
-**3. Kết quả bất ngờ nếu có:**
-> "Interestingly, PhishGuard-NoWeight performs significantly better than SVM-URL despite using the same features, suggesting that Random Forest's ensemble nature provides robustness even without explicit feature weighting."
-
----
-
-### Part 3: Ablation Study
-
-**Ablation Study là gì?** Tắt/xóa từng component của method, đo xem performance thay đổi bao nhiêu. Mục tiêu: chứng minh mỗi component đều đóng góp.
-
-**Ví dụ từ phishing paper:**
+**Part 3 — Ablation Study**:
 
 ```
 Table 2: Ablation study
 
-Configuration               F1-score   Δ vs Full
-──────────────────────────────────────────────────
-PhishGuard (full)            97.4%      —
-  w/o URL features           89.2%    -8.2%
-  w/o Domain features        94.1%    -3.3%
-  w/o HTML features          96.2%    -1.2%
-  w/o feature weighting      94.3%    -3.1%
-──────────────────────────────────────────────────
+Configuration              F1-score   Δ vs Full
+─────────────────────────────────────────────────
+PhishGuard (full)           97.4%      —
+  w/o URL features          89.2%    -8.2%
+  w/o Domain features       94.1%    -3.3%
+  w/o HTML features         96.2%    -1.2%
+  w/o feature weighting     94.3%    -3.1%
+─────────────────────────────────────────────────
 ```
 
-**Nhận xét:** "URL features contribute most significantly (8.2% drop when removed), while HTML features have the smallest impact (1.2% drop). This suggests future work could focus on improving URL-based feature engineering."
+> "URL features contribute most significantly (8.2% drop when removed). This suggests future work could focus on URL-based feature engineering."
 
-**Tại sao reviewer expect ablation study?** Vì nếu không có, reviewer không biết liệu từng component có thực sự cần thiết không.
+**Why reviewers expect ablation**: Without it, there is no evidence that each component is necessary — it could all just be the dataset doing the work.
+
+**Personalized example**: Generate a sample results analysis paragraph based on the user's method, baselines, and metrics from context.yaml.
+
+**Checkpoint**: "What are your main results? Try stating: 'My method achieves [X] on [metric], outperforming [baseline] by [Y].'"
+
+---
+
+## For Review Papers
+
+### Structure: Synthesis of Findings
+
+```
+RESULTS (SYNTHESIS) = 3 PARTS
+══════════════════════════════════════════════════════════
+
+  Part 1: OVERVIEW OF REVIEWED LITERATURE
+  ┌─────────────────────────────────────────────────┐
+  │ How many papers? Which categories dominate?     │
+  │ Trends over time (e.g., shift from X to Y)?    │
+  └─────────────────────────────────────────────────┘
+           │
+           ▼
+  Part 2: SYNTHESIS BY THEME / CATEGORY
+  ┌─────────────────────────────────────────────────┐
+  │ For each theme: what do papers agree on?        │
+  │ Where do they disagree or produce mixed results?│
+  │ What methods or frameworks recur?               │
+  └─────────────────────────────────────────────────┘
+           │
+           ▼
+  Part 3: IDENTIFIED GAPS AND OPEN CHALLENGES
+  ┌─────────────────────────────────────────────────┐
+  │ What questions remain unanswered?               │
+  │ What limitations appear across multiple papers? │
+  │ What should future research prioritize?         │
+  └─────────────────────────────────────────────────┘
+```
+
+**Principle**: Don't just list what each paper says — synthesize across papers. Find the pattern, not the inventory.
+
+**Useful sentence patterns for synthesis:**
+- "A consistent finding across studies is that [X]."
+- "While [theme A] approaches focus on [Y], [theme B] approaches prioritize [Z], leading to [trade-off]."
+- "No existing work has simultaneously addressed [gap 1] and [gap 2]."
+
+**Generic example**:
+> "Of the 87 papers reviewed, 42% focus on blacklist-based approaches, 35% on ML-based methods, and 23% on deep learning — reflecting a clear trend away from manual curation toward automated detection since 2018. A consistent finding across all categories is that detection latency remains a critical unsolved challenge. Notably, no existing work simultaneously addresses real-time detection and cross-lingual generalization."
+
+**Common mistakes:**
+- ❌ Summarizing each paper one by one (that belongs in Related Work)
+- ✅ Grouping findings thematically and drawing cross-paper conclusions
+
+**Personalized example**: Generate a sample synthesis paragraph for the user's review topic and themes.
+
+**Checkpoint**: "Looking across the papers you've read — what is one thing almost all of them agree on? And what is one thing they still can't solve?"
+
+---
+
+## For Theoretical Papers
+
+### Structure: Framework Validation / Application
+
+```
+RESULTS (FRAMEWORK APPLICATION) = 3 PARTS
+══════════════════════════════════════════════════════════
+
+  Part 1: CASE OR SCENARIO SELECTION
+  ┌─────────────────────────────────────────────────┐
+  │ Which case(s) did you choose to apply the       │
+  │ framework to, and why?                          │
+  └─────────────────────────────────────────────────┘
+           │
+           ▼
+  Part 2: APPLICATION OF THE FRAMEWORK
+  ┌─────────────────────────────────────────────────┐
+  │ Walk through how each component of the          │
+  │ framework maps onto the case                    │
+  │ What does the framework reveal or explain?      │
+  └─────────────────────────────────────────────────┘
+           │
+           ▼
+  Part 3: DISCUSSION OF IMPLICATIONS
+  ┌─────────────────────────────────────────────────┐
+  │ What does this demonstrate about the framework? │
+  │ How does it compare to prior conceptualizations?│
+  │ What are its boundaries or limitations?         │
+  └─────────────────────────────────────────────────┘
+```
+
+**Principle**: The goal is not to "prove" the framework experimentally — it's to show it is coherent, useful, and reveals something prior work could not.
+
+**Generic example**:
+> "We apply the proposed framework to three educational technology platforms: a MOOC platform, a gamified language app, and a peer-learning forum. In each case, we map the platform's design features onto the framework's three dimensions — autonomy, competence, and relatedness. The analysis reveals that platforms strong in autonomy but weak in relatedness consistently show high initial engagement but low long-term retention — a pattern that prior motivation theory alone could not predict."
+
+**Common mistakes:**
+- ❌ Just describing what the framework says without showing it applied to anything
+- ✅ Showing the framework in action on a specific, concrete example
+
+**Personalized example**: Generate a sample framework application paragraph for the user's theoretical contribution and field.
+
+**Checkpoint**: "What is one concrete case or scenario you could use to demonstrate your framework? Walk me through what the framework would say about it."
+
+---
+
+## When Your Results Are Worse Than Expected
+
+This is very common for first-time researchers. Teach what to do:
+
+```
+SCENARIO                          WHAT TO DO
+══════════════════════════════════════════════════════════════════
+
+My method is worse than           Don't hide it. Analyze WHY.
+the baseline                      "Our method underperforms baseline X
+                                   because [reason]. This suggests that
+                                   [insight], which is itself a finding."
+
+My results are inconsistent       Report all results honestly. Discuss
+across different datasets          what factors cause the inconsistency.
+or settings                       Inconsistency is a finding, not a failure.
+
+My improvement is tiny            Check if it's statistically significant.
+(e.g., 0.5% better)              If yes, report it. If no, reframe:
+                                   "Our method matches SOTA with X times
+                                   fewer parameters / less data / lower cost."
+
+I forgot to run one               Be transparent: "Due to [constraint],
+important baseline                 we were unable to compare with [X].
+                                   We leave this for future work."
+
+Nothing works at all              Step back: is the problem definition
+                                   right? Is the dataset appropriate?
+                                   Talk to your advisor before writing.
+```
+
+**Key principle**: Reviewers respect honesty far more than inflated results. A paper that clearly explains *why* a method underperforms can still be accepted — a paper that hides failure cannot.
+
+**What you should never do**: Cherry-pick the dataset or metric where your method wins and report only that. Reviewers will notice.
 
 ---
 
 ## Closing
 
-> "Bạn đã hiểu cấu trúc Results rồi: Main Table → Analysis → Ablation Study. Dùng `/paper:write results` để viết draft nhé!"
+After teaching the relevant structure and answering questions:
+
+> "You now understand how to write the Results section for your paper type. Use `/paper:write results` to draft yours with my guidance!"

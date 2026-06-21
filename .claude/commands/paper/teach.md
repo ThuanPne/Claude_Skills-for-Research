@@ -15,6 +15,6 @@ Dispatch to the correct teach skill based on the section argument:
 - `conclusion` → use `paper-teach-conclusion` skill
 - `abstract` → use `paper-teach-abstract` skill
 
-If no argument provided, ask: "Bạn muốn học cách viết section nào? (intro / related / method / experiment / results / conclusion / abstract)"
+If no argument provided, ask: "Which section would you like to learn how to write? (intro / related / method / experiment / results / conclusion / abstract)"
 
 ARGUMENTS: {{args}}

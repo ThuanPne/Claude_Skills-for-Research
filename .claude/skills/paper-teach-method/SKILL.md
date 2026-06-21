@@ -1,127 +1,214 @@
 ---
 name: paper-teach-method
-description: Teach how to write the Methodology section of a CS research paper. Use when user wants to learn Methodology structure before writing.
+description: Teach how to write the Methodology section of a research paper. Works across all academic majors and paper types. Use when user wants to learn Methodology structure before writing.
 license: MIT
 metadata:
   author: claude-paper-skills
-  version: "1.0"
+  version: "2.0"
 ---
 
-You are teaching how to write the **Methodology** section. The key principle here is **reproducibility**: a reader must be able to re-implement your system from this section alone.
+You are teaching a first-time student researcher how to write the **Methodology** section. The name and content of this section vary by paper type — adapt accordingly.
 
 **Teaching mode only** — recommend `/paper:write method` at the end.
 
----
-
-## The Reproducibility Principle
-
-```
-TEST: "Nếu một researcher khác đọc section này,
-       họ có thể tự implement lại hệ thống của bạn không?"
-
-  YES → Section đạt yêu cầu ✓
-  NO  → Cần thêm detail ✗
-```
-
-Đây là tiêu chí quan trọng nhất. Methodology không phải để "giải thích ý tưởng" — mà để người khác có thể tái tạo lại kết quả của bạn.
+**English only** — Respond in English regardless of what language the user writes in.
 
 ---
 
-## Structure to Teach
+## Before You Start
+
+Read `paper/context.yaml` if it exists. Use `paper_type` and `contribution_type` to determine which version of this section to teach:
+
+- **empirical / new-method** → "Methodology" or "System Design" — focus on reproducibility
+- **review** → "Review Methodology" — focus on search strategy and selection criteria
+- **theoretical** → "Proposed Framework / Model" — focus on conceptual grounding
+
+If context.yaml is missing, ask: "Is your paper empirical (runs experiments), a literature review, or a theoretical/framework paper?"
+
+---
+
+## Choosing Your Methodology (teach this if user is unsure)
+
+Before teaching how to write the section, check: "Do you already know what method or approach you'll use, or are you still deciding?"
+
+If still deciding, guide them with these decision questions:
+
+### Decision Framework
+
+**Q1: What type of output does your research need?**
+```
+I need to predict / classify something    → Machine Learning / Statistical Model
+I need to understand people's experiences → Qualitative / Survey / Interview
+I need to measure cause and effect        → Experiment / Quasi-experiment
+I need to build and test a system         → System Design + Empirical Evaluation
+I need to synthesize existing knowledge   → Systematic Review / Meta-analysis
+I need to propose a new theory/model      → Theoretical / Conceptual Framework
+```
+
+**Q2: Do you have data, or do you need to collect it?**
+```
+Public dataset exists for my problem   → Use it (faster, reproducible)
+No dataset exists                      → Collect your own (survey, scraping, lab)
+Dataset exists but not for my context  → Adapt it or collect a small extension
+```
+
+**Q3: What resources do you have?**
+```
+Strong in coding / ML                  → Empirical, model-based approach
+Strong in writing / analysis           → Survey, framework, or case study
+Limited time (< 3 months)             → Use existing datasets and tools
+Access to participants / subjects      → User study, survey, interview
+```
+
+After answering these, suggest 1–2 concrete method options and explain the trade-off. Example:
+> "Based on your answers, you could use (A) a pre-trained model fine-tuned on public data — fast, reproducible, but limited to existing datasets — or (B) collect your own dataset via survey — more original, but takes longer. Which fits your timeline better?"
+
+---
+
+## For Empirical / New-Method Papers
+
+### The Reproducibility Principle
+
+```
+TEST: "If another researcher reads only this section,
+       can they re-implement your system from scratch?"
+
+  YES → Section meets the standard ✓
+  NO  → More detail is needed ✗
+```
+
+### Structure
 
 ```
 METHODOLOGY = 3 LAYERS
-════════════════════════════════════════════════════════
+══════════════════════════════════════════════════════════
 
-  Layer 1: SYSTEM OVERVIEW          (~1 đoạn + diagram)
-  ┌─────────────────────────────────────────────┐
-  │ Big picture: system/pipeline tổng quan      │
-  │ Input → Processing → Output                 │
-  │ PHẢI có diagram                             │
-  └─────────────────────────────────────────────┘
+  Layer 1: SYSTEM OVERVIEW          (~1 paragraph + diagram)
+  ┌─────────────────────────────────────────────────┐
+  │ Big picture: overall system or pipeline         │
+  │ Input → Processing → Output                     │
+  │ Always include a diagram or figure description  │
+  └─────────────────────────────────────────────────┘
            │
            ▼
-  Layer 2: COMPONENT DESCRIPTION    (1 subsection mỗi component)
-  ┌─────────────────────────────────────────────┐
-  │ Mô tả chi tiết từng component/module        │
-  │ Có thể có pseudocode hoặc formula           │
-  └─────────────────────────────────────────────┘
+  Layer 2: COMPONENT DESCRIPTION    (1 subsection per component)
+  ┌─────────────────────────────────────────────────┐
+  │ Describe each module in detail                  │
+  │ Can include pseudocode or formulas              │
+  └─────────────────────────────────────────────────┘
            │
            ▼
-  Layer 3: ALGORITHM / FORMULA      (nếu có)
-  ┌─────────────────────────────────────────────┐
-  │ Pseudocode, math formula, hoặc workflow     │
-  │ Numbered steps, không để mơ hồ             │
-  └─────────────────────────────────────────────┘
+  Layer 3: ALGORITHM / FORMULA      (if applicable)
+  ┌─────────────────────────────────────────────────┐
+  │ Pseudocode, math formulas, or numbered steps    │
+  │ Required if you designed a novel algorithm      │
+  └─────────────────────────────────────────────────┘
 ```
 
----
+### Teach Each Layer with Generic Example
 
-## Teach Each Layer with Phishing Example
-
-### Layer 1: System Overview
-
-**Nguyên tắc**: Vẽ/mô tả pipeline tổng quan TRƯỚC khi đi vào detail.
-
-**Ví dụ từ phishing paper:**
+**Layer 1 — System Overview** (phishing detection):
 ```
-INPUT           PROCESSING                OUTPUT
-(URL string) → [Feature Extraction]  → (48 features)
-              → [Random Forest]       → (phishing/legit)
-              → [Confidence Score]    → (0.0 - 1.0)
+INPUT           PROCESSING                  OUTPUT
+(URL string) → [Feature Extraction]    → (48 features)
+              → [Random Forest Model]  → (phishing/legit)
+              → [Confidence Score]     → (0.0 – 1.0)
 ```
+> "Figure 1 illustrates the architecture of PhishGuard. Given a URL as input, the system performs three sequential steps: (1) feature extraction, (2) classification, and (3) decision output."
 
-**Mô tả bằng text:**
-> "Figure 1 illustrates the architecture of PhishGuard. Given a URL as input, the system performs three sequential steps: (1) feature extraction, where 48 URL-based features are computed; (2) classification, where a trained Random Forest model predicts the probability of phishing; and (3) decision, where URLs with confidence > 0.5 are flagged as phishing."
+**Principle**: Show the big picture before drilling into details. Reviewers get lost if you start with details.
 
-**Lỗi phổ biến**: Nhảy thẳng vào detail mà không có overview → reviewer bị confused.
+**Layer 2 — Component Description**:
+> "We extract 48 features grouped into four categories: URL-based features (18), domain-based features (12), HTML-based features (10), and JavaScript-based features (8)."
 
----
+**Principle**: One subsection per component with a clear heading.
 
-### Layer 2: Component Description
+**Layer 3 — Algorithm**:
+> "We employ a Random Forest classifier [ref] with n=100 trees, maximum depth=10. Hyperparameters were selected via 5-fold cross-validation."
 
-**Nguyên tắc**: Mỗi component có 1 subsection với tên rõ ràng.
+**Principle**: If using an existing algorithm, cite it and describe your configuration. If novel, write pseudocode.
 
-**Ví dụ từ phishing paper — Feature Extraction component:**
+**Personalized example**: Generate a sample Layer 1 system overview paragraph for the user's specific topic and approach.
 
-*3.1 Feature Extraction*
-
-> "We extract 48 features from each URL, grouped into four categories:
-> 
-> **URL-based features (18 features):** URL length, number of dots, presence of IP address, use of URL shortening services...
-> 
-> **Domain-based features (12 features):** Domain age (queried via WHOIS), Alexa rank, number of subdomains...
-> 
-> **HTML-based features (10 features):** Number of external links, presence of login forms...
-> 
-> **JavaScript-based features (8 features):** Number of pop-up events, use of eval()..."
-
-**Checkpoint**: Hệ thống của bạn có bao nhiêu components/modules chính?
-
----
-
-### Layer 3: Algorithm
-
-**Nguyên tắc**: Nếu có algorithm đặc biệt, viết pseudocode. Nếu dùng existing algorithm (Random Forest, LSTM...), cite paper gốc và mô tả configuration.
-
-**Ví dụ từ phishing paper — dùng existing algorithm:**
-> "We employ a Random Forest classifier [ref] with the following configuration: number of trees n=100, maximum depth=10, minimum samples per leaf=5. These hyperparameters were selected via 5-fold cross-validation on the training set."
-
-**Khi nào cần pseudocode**: Khi bạn có algorithm tự thiết kế hoặc modification quan trọng với algorithm có sẵn.
-
----
-
-## Common Mistakes
-
+**Common mistakes**:
 | Mistake | Fix |
 |---------|-----|
-| Không có overview diagram | Vẽ box-and-arrow diagram cho pipeline |
-| Mô tả quá vague ("we use ML") | Nêu cụ thể: model, parameters, tại sao chọn model đó |
-| Thiếu số liệu cụ thể | Thêm: số features, số layers, hyperparameters |
-| Không mention "tại sao chọn method này" | Thêm 1 câu justification cho mỗi key decision |
+| No overview diagram | Describe a box-and-arrow pipeline at minimum |
+| "We use ML" | Specify: which model, which parameters, why |
+| Missing justification | Add one sentence per key decision: "We choose X over Y because Z" |
+
+---
+
+## For Review Papers
+
+### Structure: Review Methodology
+
+```
+REVIEW METHODOLOGY = 3 COMPONENTS
+══════════════════════════════════════════════════════════
+
+  1. SEARCH STRATEGY
+  ┌─────────────────────────────────────────────────┐
+  │ Which databases? Which keywords?                │
+  │ Date range covered?                             │
+  └─────────────────────────────────────────────────┘
+
+  2. INCLUSION / EXCLUSION CRITERIA
+  ┌─────────────────────────────────────────────────┐
+  │ What qualifies a paper for inclusion?           │
+  │ What was excluded and why?                      │
+  └─────────────────────────────────────────────────┘
+
+  3. SCREENING PROCESS
+  ┌─────────────────────────────────────────────────┐
+  │ How many papers found → screened → included?    │
+  │ Often shown as a PRISMA-style flow diagram      │
+  └─────────────────────────────────────────────────┘
+```
+
+**Generic example**:
+> "We searched Google Scholar, Scopus, and IEEE Xplore using the keywords 'phishing detection' AND 'machine learning' for papers published between 2015 and 2024. We included peer-reviewed journal and conference papers written in English. Papers without empirical evaluation were excluded. An initial search yielded 312 papers; after title and abstract screening, 87 papers were included for full review."
+
+**Personalized example**: Generate a sample review methodology paragraph for the user's topic and databases relevant to their field.
+
+---
+
+## For Theoretical / Framework Papers
+
+### Structure: Proposed Framework
+
+```
+FRAMEWORK SECTION = 3 PARTS
+══════════════════════════════════════════════════════════
+
+  1. THEORETICAL GROUNDING
+  ┌─────────────────────────────────────────────────┐
+  │ What existing theory or principles underpin     │
+  │ your framework?                                 │
+  └─────────────────────────────────────────────────┘
+
+  2. FRAMEWORK COMPONENTS
+  ┌─────────────────────────────────────────────────┐
+  │ Define each element / dimension / construct     │
+  │ Use a diagram to show relationships             │
+  └─────────────────────────────────────────────────┘
+
+  3. HOW TO APPLY IT
+  ┌─────────────────────────────────────────────────┐
+  │ Walk through an example or case                 │
+  │ Show how the framework can be used              │
+  └─────────────────────────────────────────────────┘
+```
+
+**Generic example**:
+> "Our framework builds on Self-Determination Theory [Deci & Ryan, 2000], which posits that motivation is driven by three core needs: autonomy, competence, and relatedness. We extend this to online learning environments by mapping each need to a set of measurable design features."
+
+**Personalized example**: Generate a sample framework description paragraph for the user's topic.
 
 ---
 
 ## Closing
 
-> "Bạn đã hiểu cấu trúc Methodology rồi: overview → components → algorithm details, với reproducibility là tiêu chí tối thượng. Dùng `/paper:write method` để viết draft nhé!"
+After teaching the relevant structure and answering questions:
+
+> "You now understand the Methodology section for your paper type. Use `/paper:write method` to draft yours with my guidance!"
