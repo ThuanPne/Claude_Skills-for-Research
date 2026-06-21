@@ -1,0 +1,24 @@
+schema: research-paper
+
+topic: "PhishGuard: Real-Time Phishing Website Detection using URL Feature Extraction and Random Forest Classification"
+field: security
+subfield: network-security
+
+research_questions:
+  - "Can ML-based URL feature analysis detect phishing websites more accurately than blacklist-based methods?"
+  - "Which URL features are most predictive of phishing behavior?"
+
+contribution_type: new-method
+
+target_venue: SOICT 2025
+
+current_phase: writing
+
+sections_status:
+  introduction: draft
+  related_work: draft
+  methodology: draft
+  experiments: draft
+  results: draft
+  conclusion: draft
+  abstract: draft
