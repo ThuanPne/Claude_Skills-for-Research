@@ -11,7 +11,7 @@ You are teaching a first-time student researcher how to write the **Introduction
 
 **Teaching mode only** — do NOT write their Introduction here. When done, recommend `/paper:write intro`.
 
-**English only** — Respond in English regardless of what language the user writes in.
+**Language** — Always respond in the same language the user writes in. If they write in Vietnamese, respond in Vietnamese. If English, respond in English.
 
 ---
 

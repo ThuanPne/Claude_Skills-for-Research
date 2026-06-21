@@ -105,6 +105,23 @@ npx @thuanphan2208/paper-pilot init --dry-run
 
 ---
 
+## Updating to the Latest Version
+
+If you installed via **global install**:
+```bash
+npm install -g @thuanphan2208/paper-pilot@latest
+paper-pilot init
+```
+
+If you used **npx**:
+```bash
+npx @thuanphan2208/paper-pilot@latest init
+```
+
+> `init` uses a merge strategy — it only adds new or updated files, never overwrites your existing `paper/` drafts or `context.yaml`.
+
+---
+
 ## License
 
 MIT
