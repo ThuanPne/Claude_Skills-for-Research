@@ -75,6 +75,57 @@ After narrowing to a specific topic, explain the gap concept:
 
 > "A research gap is something that existing papers have NOT done, or haven't done well enough."
 
+Before hunting for gaps, you need papers to read. Walk the user through finding them first.
+
+### Step 0: Find Papers with Google Search Operators
+
+Explain that Google Scholar + search operators is the fastest way to find relevant papers. Show concrete examples tailored to the user's topic:
+
+> "Before we can find gaps, we need papers to read. Here's how to find them quickly using **Google Scholar** with search operators:"
+
+```
+GOOGLE SCHOLAR SEARCH OPERATORS
+════════════════════════════════════════════════════════
+
+  Operator          Example                   What it does
+  ────────          ───────                   ────────────
+  "exact phrase"    "adversarial attack"      Tìm đúng cụm từ
+                    "SOC detection"
+
+  AND               AI AND intrusion          Cả hai từ phải có
+                    detection AND framework
+
+  OR                IDS OR SIEM               Một trong hai
+
+  -word             detection -image          Loại trừ từ này
+
+  intitle:          intitle:adversarial        Từ phải có trong
+                    intitle:SOC framework      tiêu đề paper
+
+  after:2021        adversarial IDS           Chỉ paper sau năm
+                    after:2021                 2021
+
+  COMBO EXAMPLE:
+  "adversarial attack" AND IDS intitle:framework after:2022
+```
+
+After showing the operators, generate a **ready-to-use search query** based on the user's specific topic:
+> "For your topic, try this query on scholar.google.com: `[generate query from user's topic]`"
+
+Then explain how to save papers:
+
+> **Saving papers as PDF:**
+> 1. Click a result on Google Scholar → look for **[PDF]** link on the right
+> 2. If no PDF link → click the title → look for "Download PDF" on the publisher page
+> 3. If paywalled → try **Sci-Hub** (sci-hub.se) or **Unpaywall** (browser extension)
+> 4. Save with a clear filename: `AuthorYear_KeyTopic.pdf` (e.g., `Zhang2023_AdversarialIDS.pdf`)
+> 5. Aim for **5–10 papers** before the next step
+
+Ask:
+> "Try the search query above and save 3–5 papers as PDF. Once you have them, come back and we'll scan for gaps together. Or if you already have some papers, let me know their titles and we'll start now."
+
+---
+
 If the user doesn't know where to start, teach them these 3 concrete techniques:
 
 ### Technique 1: Future Work Mining
@@ -148,6 +199,50 @@ When topic + gap + RQ all feel concrete, summarize:
 **Expected Contribution**: [what the user might contribute]
 
 Ready to plan your paper? Use `/paper:plan` to continue.
+```
+
+After showing the summary, briefly preview what the **Introduction** section will look like — so the user knows what their topic/gap/RQ will turn into:
+
+> "Những gì vừa tìm ra sẽ trở thành **Introduction** của bài báo. Introduction không chia thành các subsection — thay vào đó được viết liền mạch qua 5 đoạn theo flow sau:"
+
+```
+CẤU TRÚC INTRODUCTION (6 đoạn, không có heading con)
+════════════════════════════════════════════════════════
+
+  Đoạn 1 — Background / Context
+  Bối cảnh rộng của lĩnh vực, tại sao topic này
+  quan trọng. Thường 3–5 câu, có 1–2 citation.
+  → Từ "Field" và "Specific Topic" bạn vừa xác định
+
+  Đoạn 2 — Problem Statement
+  Vấn đề cụ thể mà research này giải quyết.
+  Phải rõ ràng và có thể đo được.
+  → Từ "Problem" bạn vừa xác định
+
+  Đoạn 3 — Gap
+  Tại sao các giải pháp hiện có chưa đủ?
+  Đây là lý do bài báo này cần tồn tại.
+  → Từ "Gap" bạn vừa xác định
+
+  Đoạn 4 — Research Question
+  Câu hỏi cụ thể mà paper này đặt ra và trả lời.
+  "This raises the question: [RQ của bạn]"
+  Hoặc: "To address this gap, this paper asks: ..."
+  → Từ "Research Question" bạn vừa xác định
+
+  Đoạn 5 — Contributions
+  "In this paper, we propose/present/introduce..."
+  Liệt kê (1), (2), (3) — mỗi contribution 1 câu.
+  → Từ "Expected Contribution" bạn vừa xác định
+
+  Đoạn 6 — Paper Structure
+  "The rest of this paper is organized as follows:
+   Section 2 reviews... Section 3 presents..."
+  Viết cuối cùng sau khi biết đủ các section.
+
+════════════════════════════════════════════════════════
+  Học cách viết từng đoạn: /paper:teach intro
+  Bắt đầu lên outline đầy đủ: /paper:plan
 ```
 
 If the user wants to keep exploring, continue — no pressure to rush.

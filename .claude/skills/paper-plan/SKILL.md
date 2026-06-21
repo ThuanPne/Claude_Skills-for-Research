@@ -77,7 +77,51 @@ CONTRIBUTION TYPES
 
 **Q6**: "What venue are you targeting?" *(e.g., a conference, journal, or course submission)*
 
-**Q7**: "What format are you writing in?"
+**Q7**: "Do you have a working title for your paper? If not, I can suggest a few options."
+
+If the user has a title — accept it, give brief feedback (too vague? too long? good?), and move on.
+
+If the user doesn't have a title yet, generate **3 title options** based on topic, contribution type, and venue from Q1–Q6. Follow these patterns by contribution type:
+
+```
+TITLE PATTERNS BY CONTRIBUTION TYPE
+══════════════════════════════════════════════════════════
+
+  new-method   [Method Name]: [What it does] for [Problem]
+               e.g., "AdverSOC: A Robustness Evaluation
+                      Framework for AI-based SOC Systems"
+
+  survey       A Survey of [Topic]: [Angle or Scope]
+               e.g., "A Survey of Adversarial Attacks on
+                      ML-based Intrusion Detection Systems"
+
+  framework    [Adjective] Framework for [Task] in [Context]
+               e.g., "A Systematic Framework for Evaluating
+                      Adversarial Robustness in AI-driven SOC"
+
+  benchmark    [Name]Bench: Benchmarking [Topic] for [Use]
+               e.g., "SOCBench: A Benchmark for Adversarial
+                      Robustness of AI-based Threat Detection"
+
+  case-study   [Topic] in [Context]: A Case Study of [Focus]
+
+  new-dataset  [DatasetName]: A [Size/Type] Dataset for [Task]
+```
+
+Title quality checklist — each suggested title should:
+- Be under 15 words
+- Contain the key technical terms reviewers search for
+- Not use vague words like "Novel", "New", "Improved" alone
+- Match the formality level of the target venue
+
+After showing 3 options:
+> "Which of these feels closest to your intent? Or we can mix elements from different options."
+
+Save the chosen title (or user's own) to context.yaml.
+
+---
+
+**Q8**: "What format are you writing in?"
 
 ```
 WRITING FORMAT
@@ -98,6 +142,58 @@ WRITING FORMAT
 ```
 
 *(If unsure, ask: "Are you using Overleaf or a .tex file? → latex. Word/Google Docs? → word. Anything else? → markdown")*
+
+**Q8**: "What citation style does your venue require?"
+
+```
+CITATION STYLES
+══════════════════════════════════════════════════════════
+
+  Style       Used in                        Example
+  ─────       ───────                        ───────
+  IEEE        CS, Engineering, Tech          [1], [2], [3]
+              conferences & journals
+              (IEEE, ACM, Springer LNCS)
+
+  APA 7th     Social Sciences, Psychology,   (Smith, 2023)
+              Education, Business,
+              Health Sciences
+
+  ACS         Chemistry, Life Sciences       1. Author...
+
+  Vancouver   Medicine, Clinical Research    (1), (2)
+
+  Chicago     Humanities, History,           Footnotes or
+              Arts                           Author-Date
+
+  MLA         Literature, Arts,              (Smith 45)
+              Humanities courses
+```
+
+If the user is unsure, **recommend based on their field and venue from Q2 and Q6**:
+
+> "Based on your field and venue, here's what's typically expected:"
+
+```
+RECOMMENDATION LOGIC
+══════════════════════════════════════════════════════════
+
+  CS / Engineering + conference/journal  →  IEEE
+  CS / Engineering + course submission   →  Ask supervisor,
+                                            default IEEE
+
+  Social Sciences / Education / HCI      →  APA 7th
+  Business / Economics                   →  APA 7th
+  Health / Medicine / Biology            →  Vancouver or APA
+  Chemistry / Life Sciences              →  ACS
+  Humanities / Literature                →  MLA or Chicago
+
+  Venue named explicitly (e.g. IEEE Access, ACM CCS)
+  → Always follow that venue's author guidelines
+```
+
+If the venue has explicit author guidelines, remind:
+> "Check the venue's official **Author Guidelines** page — citation style is always specified there and overrides any default."
 
 ---
 
@@ -225,6 +321,7 @@ After the user approves the outline, write `paper/context.yaml`:
 ```yaml
 schema: research-paper
 topic: "[user's topic]"
+title: "[working title]"
 field: "[field]"
 subfield: "[subfield]"
 paper_type: [empirical|review|theoretical|mixed]
@@ -233,6 +330,7 @@ research_questions:
 contribution_type: [new-method|survey|new-dataset|framework|case-study|benchmark]
 target_venue: "[venue]"
 writing_format: [latex|word|markdown]
+citation_style: [ieee|apa7|acs|vancouver|chicago|mla]
 current_phase: writing
 sections_status:
   introduction: not-started
