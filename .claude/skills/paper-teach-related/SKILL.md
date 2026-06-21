@@ -146,7 +146,7 @@ Opening sentence:
 
 **Personalized example**: Generate a sample theme grouping structure for the user's specific topic and field.
 
-**Checkpoint**: "How many papers have you read so far? Try grouping them into 2–3 themes — what patterns do you see?"
+**Checkpoint**: "Thử nhìn vào các papers bạn đang có hoặc dự định tìm — bạn thấy chúng có thể nhóm thành 2–3 theme nào không? Mô tả ngắn gọn là được."
 
 ---
 

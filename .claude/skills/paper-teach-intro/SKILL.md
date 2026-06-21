@@ -24,7 +24,7 @@ Read `paper/context.yaml` if it exists. Use the user's topic, field, and paper_t
 ## Structure to Teach
 
 ```
-INTRODUCTION = 4 BLOCKS
+INTRODUCTION = 5 BLOCKS
 ══════════════════════════════════════════════════════════
 
   Block 1: BACKGROUND / HOOK          (~1–2 paragraphs)
@@ -34,14 +34,22 @@ INTRODUCTION = 4 BLOCKS
   └─────────────────────────────────────────────────┘
            │
            ▼
-  Block 2: PROBLEM STATEMENT          (~1 paragraph)
+  Block 2: PROBLEM STATEMENT + GAP    (~1 paragraph)
   ┌─────────────────────────────────────────────────┐
   │ What exactly is the problem?                    │
   │ Why are current approaches insufficient?        │
+  │ (Gap = what existing work has NOT addressed)    │
   └─────────────────────────────────────────────────┘
            │
            ▼
-  Block 3: CONTRIBUTIONS              (~1 paragraph + list)
+  Block 3: RESEARCH QUESTION          (~1–2 sentences)
+  ┌─────────────────────────────────────────────────┐
+  │ The specific question this paper sets out to    │
+  │ answer — must be Specific, Feasible, Measurable │
+  └─────────────────────────────────────────────────┘
+           │
+           ▼
+  Block 4: CONTRIBUTIONS              (~1 paragraph + list)
   ┌─────────────────────────────────────────────────┐
   │ "The main contributions of this paper are:"     │
   │ • Contribution 1                                │
@@ -50,7 +58,7 @@ INTRODUCTION = 4 BLOCKS
   └─────────────────────────────────────────────────┘
            │
            ▼
-  Block 4: PAPER STRUCTURE            (~1 paragraph)
+  Block 5: PAPER STRUCTURE            (~1 paragraph)
   ┌─────────────────────────────────────────────────┐
   │ "The rest of this paper is organized as..."     │
   │ Section 2: ..., Section 3: ..., ...             │
@@ -104,7 +112,96 @@ Teach one block at a time. After each block's explanation and generic example, g
 
 ---
 
-### Block 3: Contributions — The Most Important Block
+### Block 3: Research Question
+
+**Principle**: The Research Question (RQ) is the specific question your paper sets out to answer. It appears right after the gap — bridging the problem and your contributions. A good RQ has exactly 3 properties:
+
+```
+3 TÍNH CHẤT CỦA MỘT RESEARCH QUESTION TỐT
+══════════════════════════════════════════════════════════
+
+  1. SPECIFIC (Cụ thể)
+  ─────────────────────────────────────────────────────
+  RQ phải hỏi về một đối tượng, bối cảnh, hoặc
+  hiện tượng RÕ RÀNG — không hỏi chung chung.
+
+  ❌ Vague:   "How can we improve security?"
+  ✅ Specific: "How vulnerable are Random Forest and
+               DNN-based IDS models to FGSM and PGD
+               adversarial attacks on network traffic?"
+
+  Kiểm tra: Nếu 10 researcher đọc RQ, họ có đồng ý
+  về ý nghĩa của nó không? Nếu không → còn vague.
+
+  ──────────────────────────────────────────────────────
+
+  2. FEASIBLE (Khả thi)
+  ─────────────────────────────────────────────────────
+  RQ phải trả lời được trong phạm vi thời gian,
+  nguồn lực, và dữ liệu bạn có.
+
+  ❌ Not feasible: "What is the best AI model for all
+                   cybersecurity tasks?"
+                   (quá rộng, không có đáp án dứt khoát)
+  ✅ Feasible:     "Does adversarial training reduce
+                   attack success rate on CICIDS2017
+                   by more than 20%?"
+                   (có thể đo được trong 8 tuần)
+
+  Kiểm tra: Bạn có dataset, công cụ, và thời gian
+  để trả lời câu hỏi này không?
+
+  ──────────────────────────────────────────────────────
+
+  3. MEASURABLE (Đo lường được)
+  ─────────────────────────────────────────────────────
+  Câu trả lời cho RQ phải là một kết quả CÓ THỂ
+  QUAN SÁT hoặc ĐO ĐẾM — không phải ý kiến.
+
+  ❌ Not measurable: "Is AI useful in SOC?"
+                     (useful = chủ quan, không đo được)
+  ✅ Measurable:     "To what extent do adversarial
+                     attacks degrade F1-score of
+                     ML-based IDS on CICIDS2017?"
+                     (F1-score = con số cụ thể)
+
+  Kiểm tra: Câu trả lời của bạn sẽ là số, tỉ lệ,
+  bảng so sánh, hay taxonomy? Nếu có → measurable.
+```
+
+**Các mẫu câu mở đầu RQ theo loại paper:**
+
+```
+  Empirical / new-method:
+  "To what extent does [method] improve [metric]
+   compared to [baseline] on [dataset]?"
+  "How effective is [approach] at [task] under
+   [condition]?"
+
+  Evaluation / framework:
+  "How vulnerable are [AI models] to [attack types]
+   in the context of [domain]?"
+  "What factors determine the adversarial robustness
+   of [system] against [threat]?"
+
+  Review / survey:
+  "What methods have been proposed for [task], and
+   what are their key limitations?"
+
+  Theoretical / framework:
+  "What framework can systematically evaluate
+   [property] of [system] in [context]?"
+```
+
+**Personalized example**: Dựa vào `research_questions` trong context.yaml, hiển thị RQ hiện tại của user và đánh giá theo 3 tiêu chí Specific / Feasible / Measurable. Nếu thiếu tiêu chí nào, đề xuất cách cải thiện.
+
+**Nếu user muốn xem thêm ví dụ**: Cung cấp thêm 2–3 RQ mẫu từ các paper thật trong lĩnh vực gần với topic của user.
+
+**Checkpoint**: "Nhìn vào RQ của bạn — nó đã Specific, Feasible, và Measurable chưa? Thử tự chấm điểm từng tiêu chí."
+
+---
+
+### Block 4: Contributions — The Most Important Block
 
 **Principle**: Reviewers often read the contributions list *before* reading the rest of the paper. This is your paper's "promise" — be specific, concrete, and honest.
 
@@ -144,7 +241,7 @@ The main contributions of this paper are as follows:
 
 ---
 
-### Block 4: Paper Structure
+### Block 5: Paper Structure
 
 **Principle**: One short paragraph, fixed formula, no creativity needed. Just list your sections.
 
@@ -161,6 +258,9 @@ The main contributions of this paper are as follows:
 |---------|-----|
 | Opening too vague | Start with a specific statistic, event, or real-world impact |
 | No clear problem statement | Write a dedicated paragraph naming the limitation of existing work |
+| Missing Research Question | Add 1–2 sentences after the gap: "This raises the question: ..." |
+| RQ too broad | Apply Specific + Feasible + Measurable check — narrow scope |
+| RQ not measurable | Rewrite so the answer is a number, ratio, table, or taxonomy |
 | Vague contributions | Each bullet: method/action + what it does + concrete result |
 | Missing paper structure | Use the template, just fill in your section names |
 | Contributions don't match paper type | Use the format that fits: empirical, review, or theoretical |
