@@ -255,24 +255,26 @@ Adjust the `sections_status` keys to match the actual outline generated in Step 
 
 After writing context.yaml:
 
+Show the sequence dynamically based on the sections_status keys written in Step 4. Always follow this pattern:
+
 ```
 ✓ Plan saved to paper/context.yaml
 
 RECOMMENDED WRITING ORDER
 ══════════════════════════════════════════════════════════
 
-  Step 1:  /paper:teach intro      → learn how to write it
-           /paper:write intro      → draft it
+  Start with Introduction — it frames everything else.
 
-  Step 2:  /paper:teach related    → learn how to write it
-           /paper:write related    → draft it
+  Then work through your sections in outline order:
+  /paper:teach <section>   → learn how to write it
+  /paper:write <section>   → draft it
+  /paper:review <section>  → get feedback
 
-  Step 3–N: Continue section by section in outline order
-
-  Last:    /paper:teach abstract   → learn how to write it
-           /paper:write abstract   → draft it  ← always last
-
-  After each section: /paper:review <section>
+  Always write Abstract LAST:
+  /paper:teach abstract    → learn how to write it
+  /paper:write abstract    → draft it
 
 Start with: `/paper:teach intro`
 ```
+
+List only the sections that appear in the user's actual outline (from sections_status). Do not mention Experiments or Results for review/theoretical papers; do not mention Taxonomy or Framework for empirical papers.

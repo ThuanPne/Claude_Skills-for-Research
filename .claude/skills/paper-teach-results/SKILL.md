@@ -124,31 +124,95 @@ PhishGuard (full)           97.4%      —
 ### Structure: Synthesis of Findings
 
 ```
-RESULTS = 3 PARTS
+RESULTS (SYNTHESIS) = 3 PARTS
 ══════════════════════════════════════════════════════════
 
   Part 1: OVERVIEW OF REVIEWED LITERATURE
+  ┌─────────────────────────────────────────────────┐
+  │ How many papers? Which categories dominate?     │
+  │ Trends over time (e.g., shift from X to Y)?    │
+  └─────────────────────────────────────────────────┘
+           │
+           ▼
   Part 2: SYNTHESIS BY THEME / CATEGORY
+  ┌─────────────────────────────────────────────────┐
+  │ For each theme: what do papers agree on?        │
+  │ Where do they disagree or produce mixed results?│
+  │ What methods or frameworks recur?               │
+  └─────────────────────────────────────────────────┘
+           │
+           ▼
   Part 3: IDENTIFIED GAPS AND OPEN CHALLENGES
+  ┌─────────────────────────────────────────────────┐
+  │ What questions remain unanswered?               │
+  │ What limitations appear across multiple papers? │
+  │ What should future research prioritize?         │
+  └─────────────────────────────────────────────────┘
 ```
 
-**Generic example**:
-> "Of the 87 papers reviewed, 42% focus on blacklist-based approaches, 35% on ML-based methods, and 23% on deep learning. A consistent finding across themes is that detection latency remains an open challenge. No existing work simultaneously addresses real-time detection and cross-lingual generalization."
+**Principle**: Don't just list what each paper says — synthesize across papers. Find the pattern, not the inventory.
 
-**Personalized example**: Generate a sample synthesis paragraph for the user's review topic.
+**Useful sentence patterns for synthesis:**
+- "A consistent finding across studies is that [X]."
+- "While [theme A] approaches focus on [Y], [theme B] approaches prioritize [Z], leading to [trade-off]."
+- "No existing work has simultaneously addressed [gap 1] and [gap 2]."
+
+**Generic example**:
+> "Of the 87 papers reviewed, 42% focus on blacklist-based approaches, 35% on ML-based methods, and 23% on deep learning — reflecting a clear trend away from manual curation toward automated detection since 2018. A consistent finding across all categories is that detection latency remains a critical unsolved challenge. Notably, no existing work simultaneously addresses real-time detection and cross-lingual generalization."
+
+**Common mistakes:**
+- ❌ Summarizing each paper one by one (that belongs in Related Work)
+- ✅ Grouping findings thematically and drawing cross-paper conclusions
+
+**Personalized example**: Generate a sample synthesis paragraph for the user's review topic and themes.
+
+**Checkpoint**: "Looking across the papers you've read — what is one thing almost all of them agree on? And what is one thing they still can't solve?"
 
 ---
 
 ## For Theoretical Papers
 
-### Structure: Framework Validation
+### Structure: Framework Validation / Application
 
-Show the framework applied to one or more examples, cases, or scenarios. The goal is to demonstrate that the framework is useful and coherent.
+```
+RESULTS (FRAMEWORK APPLICATION) = 3 PARTS
+══════════════════════════════════════════════════════════
+
+  Part 1: CASE OR SCENARIO SELECTION
+  ┌─────────────────────────────────────────────────┐
+  │ Which case(s) did you choose to apply the       │
+  │ framework to, and why?                          │
+  └─────────────────────────────────────────────────┘
+           │
+           ▼
+  Part 2: APPLICATION OF THE FRAMEWORK
+  ┌─────────────────────────────────────────────────┐
+  │ Walk through how each component of the          │
+  │ framework maps onto the case                    │
+  │ What does the framework reveal or explain?      │
+  └─────────────────────────────────────────────────┘
+           │
+           ▼
+  Part 3: DISCUSSION OF IMPLICATIONS
+  ┌─────────────────────────────────────────────────┐
+  │ What does this demonstrate about the framework? │
+  │ How does it compare to prior conceptualizations?│
+  │ What are its boundaries or limitations?         │
+  └─────────────────────────────────────────────────┘
+```
+
+**Principle**: The goal is not to "prove" the framework experimentally — it's to show it is coherent, useful, and reveals something prior work could not.
 
 **Generic example**:
-> "We apply the proposed framework to three educational technology platforms. In each case, we show how the framework's three dimensions — autonomy, competence, and relatedness — map to specific design features and predict observed engagement patterns."
+> "We apply the proposed framework to three educational technology platforms: a MOOC platform, a gamified language app, and a peer-learning forum. In each case, we map the platform's design features onto the framework's three dimensions — autonomy, competence, and relatedness. The analysis reveals that platforms strong in autonomy but weak in relatedness consistently show high initial engagement but low long-term retention — a pattern that prior motivation theory alone could not predict."
 
-**Personalized example**: Generate a sample framework application paragraph for the user's theoretical contribution.
+**Common mistakes:**
+- ❌ Just describing what the framework says without showing it applied to anything
+- ✅ Showing the framework in action on a specific, concrete example
+
+**Personalized example**: Generate a sample framework application paragraph for the user's theoretical contribution and field.
+
+**Checkpoint**: "What is one concrete case or scenario you could use to demonstrate your framework? Walk me through what the framework would say about it."
 
 ---
 

@@ -41,8 +41,8 @@ Tell the user: "I'll ask you 5 questions to gather enough information to write y
 **Q4**: "What are your main contributions? List 2–3 specific points."
 *(Guide if stuck: "What did you propose or build? What result did you achieve? What else did you discover or provide?")*
 
-**Q5**: "How is your paper structured? How many sections, and what does each cover?"
-*(If unsure, use the outline from context.yaml or suggest a standard order: Related Work → Methodology → Experiments/Results → Conclusion)*
+**Q5**: Read the outline from `context.yaml` (sections_status keys) and confirm with the user:
+"Based on your plan, your paper has these sections: [list from context.yaml]. Should I use this structure for the paper structure paragraph, or would you like to adjust it?"
 
 ---
 

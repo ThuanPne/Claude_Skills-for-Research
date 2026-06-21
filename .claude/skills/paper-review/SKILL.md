@@ -42,17 +42,19 @@ Read the section and evaluate against these criteria:
 - **Flow**: Does the argument progress logically?
 - **Specificity**: Are claims backed by numbers, evidence, or citations?
 
-**Section-specific checks (adapt to paper_type):**
+**Section-specific checks — adapt based on paper_type from context.yaml:**
 
-| Section | Key checks |
-|---------|-----------|
-| Introduction | 4 blocks present? Contributions specific and concrete? Problem clearly stated? |
-| Related Work | Thematic grouping (not a list)? Limitations analyzed per theme? Positioning paragraph present? |
-| Methodology | Appropriate for paper type? Reproducible (empirical)? Search criteria clear (review)? Framework grounded (theoretical)? |
-| Experiments | Dataset stats complete? Baselines justified? Metrics explained? Implementation details sufficient? |
-| Results | Table complete with all methods and metrics? Analysis goes beyond restating numbers? Ablation study present (if empirical)? |
-| Conclusion | Distinct from abstract (not copy-paste)? Limitations honest and specific? Future work actionable? |
-| Abstract | All 4 elements present? No citations? No undefined acronyms? Word count within limit? Numbers included? |
+| Section | Empirical / new-method | Review | Theoretical |
+|---------|----------------------|--------|-------------|
+| Introduction | 4 blocks present? Contributions concrete? | Review scope and questions stated? | Framework objective clear? |
+| Related Work | Thematic grouping? Limitations per theme? Positioning paragraph? | Same | Same |
+| Methodology | Reproducible? System diagram? Justifications? | Search strategy? Inclusion/exclusion criteria? Screening numbers? | Theoretical grounding? Framework components defined? |
+| Experiments | Dataset stats? Baselines justified? Metrics explained? Impl. details? | N/A | N/A |
+| Results / Synthesis | Table complete? Analysis beyond numbers? Ablation study? | Themes synthesized? Agreements/disagreements noted? Gaps identified? | Framework applied to example? Implications discussed? |
+| Conclusion | Not copy-paste of abstract? Limitations honest? Future work specific? | Same | Same |
+| Abstract | All elements present? No citations? No acronyms? Word count? Numbers? | Same | Same |
+
+Skip checks for sections that don't exist in the user's outline.
 
 ---
 

@@ -133,7 +133,11 @@ Check your target venue's author guidelines for the exact limit.
 
 ## Personalized Example
 
-After explaining the formula, generate a **draft abstract** using the appropriate formula and the user's topic, gap, method, and results from context.yaml. Show it as an example for them to learn from — not as their final abstract (that happens in `/paper:write abstract`).
+After explaining the formula, generate a **practice abstract** to help the user see what the formula looks like applied to their topic. Make it clearly labeled:
+
+> "Here is what an abstract for **your topic** might look like using this formula. This is a teaching example — your actual abstract will be drafted in `/paper:write abstract` after all sections are complete."
+
+Use the user's topic, gap, and contribution from context.yaml to fill in the formula. Keep it clearly marked as an illustration, not a final draft.
 
 ---
 
