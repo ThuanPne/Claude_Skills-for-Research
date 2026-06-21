@@ -1,5 +1,5 @@
 {
-  "name": "paper-pilot",
+  "name": "@thuanphan2208/paper-pilot",
   "version": "1.0.0",
   "description": "Install Claude Code paper-writing skills into any project with one command.",
   "keywords": ["claude", "claude-code", "research", "paper", "skills", "academic"],
@@ -22,5 +22,8 @@
   },
   "engines": {
     "node": ">=18.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
