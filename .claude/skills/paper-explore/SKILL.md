@@ -75,14 +75,23 @@ After narrowing to a specific topic, explain the gap concept:
 
 > "A research gap is something that existing papers have NOT done, or haven't done well enough."
 
-Give an example matched to the user's field. Generic template:
-> "For example, in [topic], most existing work focuses on [common approach] — but it struggles with [limitation]. The gap is: we need a method/framework/study that addresses [missing piece]."
+If the user doesn't know where to start, teach them these 3 concrete techniques:
 
-Then ask:
-- "What do you think are the limitations of current solutions or studies in this area?"
-- "Can you think of a situation where existing approaches would fail or fall short?"
+### Technique 1: Future Work Mining
+> "Go to 3–5 recent papers on your topic. Scroll to the last section — almost every paper has a 'Future Work' or 'Limitations' paragraph. The authors themselves are telling you what gaps exist. Collect those and you have a ready-made list of real research gaps."
 
-Help the user articulate the gap in one sentence before moving on.
+### Technique 2: Contradiction Hunting
+> "Find two papers that study the same problem but reach different conclusions. That disagreement *is* the gap — someone needs to explain why the results differ, or run a study that resolves the conflict."
+
+### Technique 3: Context Transfer
+> "Find a method that works well in one domain (e.g., country, industry, language, age group) but has never been tested in another. Applying it to a new context is a valid research gap — 'To our knowledge, this is the first study to apply X in the context of Y.'"
+
+After explaining the techniques, ask:
+- "Have you read any papers on your topic yet? If yes — what does their Future Work section say?"
+- "If you haven't read any yet, that's fine — which technique do you want to try first?"
+
+Once the user has a candidate gap, help them articulate it in one sentence:
+> "Try filling in this template: 'Existing work on [topic] focuses on [common approach], but it does not address [missing piece].'"
 
 ---
 

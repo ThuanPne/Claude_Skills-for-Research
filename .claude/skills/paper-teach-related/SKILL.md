@@ -21,6 +21,61 @@ Read `paper/context.yaml` if it exists. Use the user's topic, field, and paper_t
 
 ---
 
+## Step 0: How to Find and Read Papers (teach this first if user hasn't started)
+
+Before teaching structure, check: "Have you already collected papers to review, or are you starting from scratch?"
+
+If starting from scratch, teach this quick workflow:
+
+### Where to Find Papers
+```
+SOURCE              BEST FOR
+─────────────────────────────────────────────────────
+Google Scholar      Starting point for any field
+Semantic Scholar    AI-powered related paper finder
+IEEE Xplore         Engineering, CS, Electronics
+PubMed              Health, Biology, Medicine
+SSRN                Economics, Law, Social Sciences
+ACM Digital Library Computer Science
+```
+> "Search your topic keywords + filter by year (last 5 years). Start with 10–15 papers."
+
+### How to Read a Paper Efficiently (for beginners)
+Don't read cover to cover. Use this order:
+
+```
+READING ORDER FOR EFFICIENCY
+══════════════════════════════════════════════════════════
+
+  Step 1: Abstract (2 min)
+  → Is this paper relevant? Yes/No.
+
+  Step 2: Introduction — last 2 paragraphs (2 min)
+  → What do they claim to contribute?
+
+  Step 3: Conclusion (3 min)
+  → What did they actually find? What are the limitations?
+
+  Step 4: Results / Figures (5 min)
+  → What are the key numbers or findings?
+
+  Step 5: Full read only if paper is highly relevant
+```
+
+### Note-Taking Template (one card per paper)
+```
+Paper: [Author, Year, Title]
+Problem they solve: 
+Method they use:   
+Key result:        
+Limitation / Future work they mention:
+How it relates to my topic:
+```
+
+> "Fill in one card per paper. When you have 8–10 cards, look for patterns — papers that use similar methods go in the same theme group."
+
+---
+
 ## The Core Misconception to Fix
 
 ```

@@ -37,15 +37,23 @@ Also check if `paper/sections/04-experiments.md` exists — read it if available
 Tell the user: "I need your experimental results to write this section."
 
 **Q1**: "What are your main results? List performance numbers for your method and all baselines across each metric."
-*(e.g., "Our method: Acc=97.4%, F1=97.4%. Baseline A: Acc=92.1%, F1=92.1%...")*
+*(Example: "PhishGuard: Acc=97.4%, P=97.1%, R=97.7%, F1=97.4%. SVM-URL: Acc=92.1%, F1=92.1%. PhishTank blacklist: Acc=78.3%, F1=76.2%.")*
+*(If results are worse than baselines: "Share the numbers honestly — we'll handle how to write about it.")*
 
 **Q2**: "Does your method outperform the baselines? By how much on the primary metric?"
+*(Example: "Yes — beats SVM-URL by 5.3% F1, and blacklist by 21.2%.")*
+*(If no: "By how much does it fall short? On which metric? Does it win on any specific metric or subset?")*
 
 **Q3**: "Why do you think your method performs better? What design decision drives that improvement?"
+*(Example: "The feature weighting mechanism — it assigns more importance to discriminative features like URL length, reducing noise from weaker signals.")*
+*(If unsure: "Look at your ablation results — which component removal caused the biggest performance drop?")*
 
-**Q4**: "Were there any surprising findings — a baseline that performed unexpectedly well or poorly, or a metric that diverged from expectations?"
+**Q4**: "Were there any surprising findings — a baseline that performed unexpectedly, or a metric that diverged from expectations?"
+*(Example: "PhishGuard-NoWeight beat SVM-URL even without feature weighting — suggesting Random Forest's ensemble nature itself provides robustness.")*
 
-**Q5**: "Do you have ablation study results? (e.g., performance when each component is removed or disabled)"
+**Q5**: "Do you have ablation study results? (performance when each component is removed)"
+*(Example: "Yes — removing URL features drops F1 by 8.2%; domain features by 3.3%; HTML features by 1.2%.")*
+*(If no ablation: "That's fine — we'll note it as a limitation of the study.")*
 
 ---
 

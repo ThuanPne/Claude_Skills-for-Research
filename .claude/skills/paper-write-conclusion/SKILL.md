@@ -29,11 +29,15 @@ Also read `paper/sections/01-introduction.md` (especially contributions) and `pa
 Tell the user: "Three short questions to write your Conclusion."
 
 **Q1**: "Summarize your main contribution in 1–2 sentences. Focus on what you PROVED or DEMONSTRATED — not just what you proposed."
-*(Guide if stuck: "Instead of 'We proposed X', try 'We demonstrated that X can...' and include a specific result or finding.")*
+*(Example: "We demonstrated that ML-based phishing detection using URL features can outperform traditional blacklists in real-time, achieving 97.4% F1 while classifying each URL in under 50ms.")*
+*(Guide if stuck: "Try: 'We demonstrated that [X] can [result] by [method].' Use a number if you have one.")*
 
 **Q2**: "What are the limitations of this research? Name 2–3 specific things that were NOT tested, addressed, or covered."
+*(Example: "1) Only English-language URLs tested. 2) Static dataset — doesn't reflect evolving attacks over time. 3) No visual similarity analysis of page content.")*
+*(If stuck: "What would a skeptical reviewer say your paper doesn't cover?")*
 
-**Q3**: "What future research directions do you suggest? Be specific — ideally each direction addresses one of the limitations you just named."
+**Q3**: "What future research directions do you suggest? Be specific — ideally one direction per limitation."
+*(Example: "1) Extend to multilingual URLs. 2) Develop online learning variant that adapts over time. 3) Integrate computer vision for visual similarity detection.")*
 
 ---
 

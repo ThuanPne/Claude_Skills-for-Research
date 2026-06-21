@@ -29,14 +29,18 @@ Check `paper/context.yaml`. If missing, ask the user to run `/paper:plan` first.
 Tell the user: "I need to know about the papers you've read to write your Related Work. Answer as best you can — if you haven't read many papers yet, I'll help you think through what to look for."
 
 **Q1**: "List 5–10 related papers you've read or know of. Format: [Author(s), year — brief description or method name]"
-*(If the user has few papers, suggest: "Try searching Google Scholar or Semantic Scholar with your topic keywords. Aim for at least 8–10 papers before writing this section.")*
+*(Example: "Zhang et al. 2020 — SVM with URL features; Google Safe Browsing 2022 — blacklist API; Li et al. 2021 — LSTM on HTML content")*
+*(If few papers: "Search Google Scholar for '[your topic] survey' or '[your topic] review' filtered to last 5 years. Aim for at least 8 papers.")*
 
 **Q2**: "How would you group those papers into 2–3 themes or categories? What patterns do you see?"
-*(If stuck: "Think about whether papers use similar methods, focus on similar problems, or represent different approaches to the same issue.")*
+*(Example: "Group 1: blacklist-based — PhishTank, Safe Browsing. Group 2: ML with URL features — Zhang, Li, Kim. Group 3: deep learning on page content — Chen, Wang.")*
+*(If stuck: "Look at the method each paper uses. Papers using similar methods belong in the same group.")*
 
 **Q3**: "What are the main limitations of existing approaches in your area? Why don't they fully solve your problem?"
+*(Example: "Blacklist methods are too slow — update takes hours. ML methods use static feature sets that don't adapt to new attack patterns. Deep learning is too slow for real-time use.")*
 
 **Q4**: "What makes your approach different from the prior work you've reviewed?"
+*(Example: "Unlike prior ML approaches that use fixed features, we dynamically weight features by predictive power. Also the first study specifically on Vietnamese phishing campaigns.")*
 
 ---
 

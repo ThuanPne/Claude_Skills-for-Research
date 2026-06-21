@@ -35,14 +35,19 @@ Check `paper/context.yaml`. If missing, ask the user to run `/paper:plan` first.
 Tell the user: "I'll ask about your system or method so I can write the Methodology. More detail = more reproducible draft."
 
 **Q1**: "Describe your system or method step by step. What is the input? What is the output? What happens in between?"
+*(Example: "Input: a URL string. Step 1: extract 48 features. Step 2: pass to Random Forest classifier. Output: phishing/legitimate label + confidence score.")*
 
 **Q2**: "How many main components or modules does your system have? What does each one do?"
+*(Example: "3 components — Feature Extractor (parses URL and HTML), Classifier (Random Forest), Decision Engine (applies 0.5 threshold to confidence score).")*
 
-**Q3**: "What algorithm, model, or technique do you use? (e.g., Random Forest, CNN, regression, simulation) With what configuration or parameters?"
+**Q3**: "What algorithm, model, or technique do you use? With what configuration or parameters?"
+*(Example: "Random Forest: 100 trees, max depth 10, min samples per leaf 5. Hyperparameters chosen via 5-fold cross-validation.")*
 
 **Q4**: "Why did you choose this method/algorithm over alternatives?"
+*(Example: "Random Forest over SVM because it handles non-linear interactions and provides feature importance scores, which we use for our weighting mechanism.")*
 
 **Q5**: "Are there any formulas, pseudocode, or special technical details that need to be described?"
+*(Example: "Yes — the feature weighting formula: w_i = importance_i / Σimportance. Also pseudocode for the prediction pipeline.")*
 
 ---
 

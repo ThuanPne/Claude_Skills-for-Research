@@ -27,6 +27,44 @@ If context.yaml is missing, ask: "Is your paper empirical (runs experiments), a 
 
 ---
 
+## Choosing Your Methodology (teach this if user is unsure)
+
+Before teaching how to write the section, check: "Do you already know what method or approach you'll use, or are you still deciding?"
+
+If still deciding, guide them with these decision questions:
+
+### Decision Framework
+
+**Q1: What type of output does your research need?**
+```
+I need to predict / classify something    → Machine Learning / Statistical Model
+I need to understand people's experiences → Qualitative / Survey / Interview
+I need to measure cause and effect        → Experiment / Quasi-experiment
+I need to build and test a system         → System Design + Empirical Evaluation
+I need to synthesize existing knowledge   → Systematic Review / Meta-analysis
+I need to propose a new theory/model      → Theoretical / Conceptual Framework
+```
+
+**Q2: Do you have data, or do you need to collect it?**
+```
+Public dataset exists for my problem   → Use it (faster, reproducible)
+No dataset exists                      → Collect your own (survey, scraping, lab)
+Dataset exists but not for my context  → Adapt it or collect a small extension
+```
+
+**Q3: What resources do you have?**
+```
+Strong in coding / ML                  → Empirical, model-based approach
+Strong in writing / analysis           → Survey, framework, or case study
+Limited time (< 3 months)             → Use existing datasets and tools
+Access to participants / subjects      → User study, survey, interview
+```
+
+After answering these, suggest 1–2 concrete method options and explain the trade-off. Example:
+> "Based on your answers, you could use (A) a pre-trained model fine-tuned on public data — fast, reproducible, but limited to existing datasets — or (B) collect your own dataset via survey — more original, but takes longer. Which fits your timeline better?"
+
+---
+
 ## For Empirical / New-Method Papers
 
 ### The Reproducibility Principle

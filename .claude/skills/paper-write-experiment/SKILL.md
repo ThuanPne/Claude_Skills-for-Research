@@ -32,14 +32,21 @@ Check `paper/context.yaml`. If missing, ask the user to run `/paper:plan` first.
 Tell the user: "I'll ask about your experimental setup so I can write this section."
 
 **Q1**: "What dataset or data did you use? Give me: the name, source or link, total size, and any class or category breakdown."
+*(Example: "PhishTank — 15,000 phishing URLs from phishtank.com. Alexa Top 1M — 15,000 legitimate URLs. Total: 30,000 balanced samples.")*
+*(If no public dataset: "Describe how you collected data — survey platform, scraping script, lab setup, participant recruitment, etc.")*
 
 **Q2**: "How did you split the data? (e.g., 80/10/10 train/validation/test, k-fold cross-validation, etc.)"
+*(Example: "80/10/10 — 24,000 train, 3,000 validation, 3,000 test. Stratified to preserve class balance.")*
 
 **Q3**: "What baselines or comparison methods did you evaluate against? Why did you choose them?"
+*(Example: "(1) PhishTank blacklist — traditional approach; (2) SVM-URL from Zhang et al. 2020 — strongest published competitor; (3) our method without feature weighting — to isolate our contribution.")*
+*(If unsure: "Include at least: the method people used before you, and the most recent published method in your area.")*
 
-**Q4**: "What metrics did you use to evaluate performance? (e.g., Accuracy, F1-score, MAE, BLEU, AUC, Likert scale) Why these metrics?"
+**Q4**: "What metrics did you use to evaluate performance? Why these metrics?"
+*(Example: "Accuracy, Precision, Recall, F1-score. Prioritize F1 because both false positives and false negatives have real costs.")*
 
-**Q5**: "What were your implementation details? Hardware, programming language, framework or library, key hyperparameters, and approximate training/processing time?"
+**Q5**: "What were your implementation details? Hardware, language, framework, key hyperparameters, training time?"
+*(Example: "Intel Core i7-12700H, 16GB RAM. Python 3.10, scikit-learn 1.2.0. n_estimators=100, max_depth=10. Training: ~3 minutes.")*
 
 ---
 

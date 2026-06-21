@@ -32,14 +32,18 @@ Check if `paper/context.yaml` exists and read it.
 Tell the user: "I'll ask you 5 questions to gather enough information to write your Introduction. Short answers are fine — I'll expand them when writing."
 
 **Q1**: "What is the problem your paper addresses? Describe it briefly."
+*(Example: "Phishing websites trick users into giving away passwords, and current detection systems are too slow to catch newly created ones.")*
 
 **Q2**: "Why does this problem matter? Who is affected, and what are the consequences?"
+*(Example: "It affects millions of internet users. Victims lose money — over $43 billion annually worldwide. Banks and companies also spend heavily on fraud recovery.")*
 
 **Q3**: "How do existing approaches handle this problem, and what are their main limitations?"
-*(If the user is unsure, prompt: "Think about what methods or solutions exist today, and where they fall short.")*
+*(Example: "Most systems use blacklists — databases of known bad URLs. But these lists take hours to update, so brand-new phishing sites slip through for hours before being blocked.")*
+*(If the user is unsure, prompt: "Think about what tools or methods exist today. What can they NOT do?")*
 
 **Q4**: "What are your main contributions? List 2–3 specific points."
-*(Guide if stuck: "What did you propose or build? What result did you achieve? What else did you discover or provide?")*
+*(Example: "1) We propose PhishGuard, a real-time URL classifier using 48 features. 2) We achieve 97.4% F1 on 30,000 URLs, beating the best baseline by 5.3%. 3) We identify the top 10 features most predictive of phishing.")*
+*(Guide if stuck: "Start with: 'We propose...', 'We demonstrate...', 'We achieve...'")*
 
 **Q5**: Read the outline from `context.yaml` (sections_status keys) and confirm with the user:
 "Based on your plan, your paper has these sections: [list from context.yaml]. Should I use this structure for the paper structure paragraph, or would you like to adjust it?"

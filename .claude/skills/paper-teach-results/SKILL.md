@@ -216,6 +216,43 @@ RESULTS (FRAMEWORK APPLICATION) = 3 PARTS
 
 ---
 
+## When Your Results Are Worse Than Expected
+
+This is very common for first-time researchers. Teach what to do:
+
+```
+SCENARIO                          WHAT TO DO
+══════════════════════════════════════════════════════════════════
+
+My method is worse than           Don't hide it. Analyze WHY.
+the baseline                      "Our method underperforms baseline X
+                                   because [reason]. This suggests that
+                                   [insight], which is itself a finding."
+
+My results are inconsistent       Report all results honestly. Discuss
+across different datasets          what factors cause the inconsistency.
+or settings                       Inconsistency is a finding, not a failure.
+
+My improvement is tiny            Check if it's statistically significant.
+(e.g., 0.5% better)              If yes, report it. If no, reframe:
+                                   "Our method matches SOTA with X times
+                                   fewer parameters / less data / lower cost."
+
+I forgot to run one               Be transparent: "Due to [constraint],
+important baseline                 we were unable to compare with [X].
+                                   We leave this for future work."
+
+Nothing works at all              Step back: is the problem definition
+                                   right? Is the dataset appropriate?
+                                   Talk to your advisor before writing.
+```
+
+**Key principle**: Reviewers respect honesty far more than inflated results. A paper that clearly explains *why* a method underperforms can still be accepted — a paper that hides failure cannot.
+
+**What you should never do**: Cherry-pick the dataset or metric where your method wins and report only that. Reviewers will notice.
+
+---
+
 ## Closing
 
 After teaching the relevant structure and answering questions:
