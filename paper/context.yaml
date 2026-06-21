@@ -1,0 +1,34 @@
+# Research Paper Context
+# Được tạo bởi /paper:plan — chỉnh sửa trực tiếp hoặc chạy lại /paper:plan để cập nhật
+
+schema: research-paper
+
+# Thông tin cơ bản
+topic: ""
+field: ""           # e.g., security, networks, ai, systems, hci
+subfield: ""        # e.g., network-security, nlp, computer-vision
+
+# Câu hỏi nghiên cứu (1-3 câu hỏi)
+research_questions:
+  - ""
+
+# Loại đóng góp
+# Chọn một: new-method | survey | new-dataset | benchmark | system
+contribution_type: ""
+
+# Venue mục tiêu (conference hoặc journal)
+target_venue: ""    # e.g., SOICT 2025, IEEE Access, ACM CCS
+
+# Trạng thái hiện tại
+current_phase: explore   # explore | planning | writing | review
+
+# Trạng thái từng section
+# Giá trị: not-started | in-progress | draft | reviewed
+sections_status:
+  introduction: not-started
+  related_work: not-started
+  methodology: not-started
+  experiments: not-started
+  results: not-started
+  conclusion: not-started
+  abstract: not-started
