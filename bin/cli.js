@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 'use strict';
 
-const { init } = require('../src/init');
+const { init, update } = require('../src/init');
 
 const args = process.argv.slice(2);
 const command = args[0];
@@ -14,6 +14,10 @@ const RESET = '\x1b[0m';
 switch (command) {
   case 'init':
     init({ dryRun });
+    break;
+
+  case 'update':
+    update({ dryRun });
     break;
 
   case '--version':
@@ -30,10 +34,12 @@ switch (command) {
 ${BOLD}paper-pilot${RESET} — Install Claude Code paper-writing skills into your project
 
 Usage:
-  npx paper-pilot init           Install skills into current directory
-  npx paper-pilot init --dry-run Preview what would be installed
-  npx paper-pilot --version      Show version
-  npx paper-pilot --help         Show this help
+  npx paper-pilot init             Install skills into current directory
+  npx paper-pilot init --dry-run   Preview what would be installed
+  npx paper-pilot update           Update skills to latest version (keeps your paper/ folder)
+  npx paper-pilot update --dry-run Preview what would be updated
+  npx paper-pilot --version        Show version
+  npx paper-pilot --help           Show this help
 
 After init, open Claude Code and run /paper:explore to get started.
 `);

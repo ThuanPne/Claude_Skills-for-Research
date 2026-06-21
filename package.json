@@ -1,6 +1,6 @@
 {
   "name": "@thuanphan2208/paper-pilot",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "description": "Install Claude Code paper-writing skills into any project with one command.",
   "keywords": [
     "claude",
@@ -13,11 +13,11 @@
   "homepage": "https://github.com/ThuanPne/Claude_Skills-for-Research",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ThuanPne/Claude_Skills-for-Research.git"
+    "url": "git+https://github.com/ThuanPne/Claude_Skills-for-Research.git"
   },
   "license": "MIT",
   "bin": {
-    "paper-pilot": "./bin/cli.js"
+    "paper-pilot": "bin/cli.js"
   },
   "files": [
     "bin/",

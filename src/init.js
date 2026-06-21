@@ -108,4 +108,76 @@ function init({ dryRun = false } = {}) {
   log('');
 }
 
-module.exports = { init };
+function update({ dryRun = false } = {}) {
+  const packageRoot = path.join(__dirname, '..');
+  const destRoot = process.cwd();
+
+  log('');
+  log(`${BOLD}paper-pilot update${RESET}${dryRun ? ' (dry run)' : ''}`);
+  log('─'.repeat(50));
+  log(`${CYAN}Only skill files will be updated. Your paper/ folder is untouched.${RESET}`);
+  log('');
+
+  const targets = [
+    { src: path.join(packageRoot, '.claude', 'skills'), dest: path.join(destRoot, '.claude', 'skills'), label: 'skills' },
+    { src: path.join(packageRoot, '.claude', 'commands'), dest: path.join(destRoot, '.claude', 'commands'), label: 'commands' },
+  ];
+
+  let updated = 0;
+  let added = 0;
+
+  for (const { src, dest, label } of targets) {
+    if (!fs.existsSync(src)) continue;
+    log(`Updating .claude/${label}/`);
+
+    const entries = fs.readdirSync(src, { withFileTypes: true });
+    for (const entry of entries) {
+      const srcPath = path.join(src, entry.name);
+      const destPath = path.join(dest, entry.name);
+
+      if (entry.isDirectory()) {
+        // skill subfolder — overwrite SKILL.md inside
+        const skillSrc = path.join(srcPath, 'SKILL.md');
+        const skillDest = path.join(destPath, 'SKILL.md');
+        if (!fs.existsSync(skillSrc)) continue;
+
+        const isNew = !fs.existsSync(skillDest);
+        if (!dryRun) {
+          fs.mkdirSync(destPath, { recursive: true });
+          fs.copyFileSync(skillSrc, skillDest);
+        }
+        if (isNew) {
+          success(`${path.relative(destRoot, skillDest)} (new)`);
+          added++;
+        } else {
+          log(`${CYAN}↑${RESET} ${path.relative(destRoot, skillDest)}`);
+          updated++;
+        }
+      } else {
+        // command file — overwrite directly
+        const isNew = !fs.existsSync(destPath);
+        if (!dryRun) {
+          fs.mkdirSync(dest, { recursive: true });
+          fs.copyFileSync(srcPath, destPath);
+        }
+        if (isNew) {
+          success(`${path.relative(destRoot, destPath)} (new)`);
+          added++;
+        } else {
+          log(`${CYAN}↑${RESET} ${path.relative(destRoot, destPath)}`);
+          updated++;
+        }
+      }
+    }
+  }
+
+  log('');
+  log('─'.repeat(50));
+  log(`${updated} file(s) updated, ${added} new file(s) added`);
+  log(`${YELLOW}─${RESET} paper/ folder untouched`);
+  log('');
+  log(`${BOLD}Update complete! Restart Claude Code to load new skills.${RESET}`);
+  log('');
+}
+
+module.exports = { init, update };
